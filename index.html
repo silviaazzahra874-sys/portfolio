@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silvia Azzahra | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #243047;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #142b4a;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        header h2 {
+            color: #63d6ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        nav a:hover {
+            color: #63d6ff;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #142b4a, #176b87);
+            color: white;
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            margin: 10px 0 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #63d6ff;
+            color: #142b4a;
+            padding: 10px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 55px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #176b87;
+        }
+
+        .about {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .skills, .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #142b4a12;
+        }
+
+        .card h3 {
+            color: #176b87;
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            text-align: center;
+            background: #e4edf5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #142b4a;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Silvia Azzahra</h2>
+        <nav>
+            <a href="#about">Tentang</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#projects">Proyek</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Halo, Saya Silvia Azzahra!</h1>
+        <p>Mahasiswa Teknik Elektronika</p>
+        <p>Belajar, Berkarya, dan Mengembangkan Keterampilan di Bidang Elektronika.</p>
+        <a href="#projects" class="btn">Lihat Portofolio</a>
+    </div>
+
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <div class="about">
+            <p>
+                Saya adalah mahasiswa Teknik Elektronika yang tertarik
+                pada elektronika, pemrograman, dan sistem kendali.
+                Saya terus mengembangkan pengetahuan dan keterampilan
+                melalui kegiatan praktikum serta proyek akademik.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Keterampilan</h2>
+        <div class="skills">
+            <div class="card">
+                <h3>Elektronika Dasar</h3>
+                <p>Mempelajari komponen, rangkaian, dan pengukuran listrik.</p>
+            </div>
+
+            <div class="card">
+                <h3>Pemrograman</h3>
+                <p>Mempelajari dasar C++, Python, dan logika pemrograman.</p>
+            </div>
+
+            <div class="card">
+                <h3>LabVIEW</h3>
+                <p>Mempelajari pemrograman visual dan sistem kendali.</p>
+            </div>
+
+            <div class="card">
+                <h3>Jaringan Komputer</h3>
+                <p>Mempelajari konfigurasi jaringan dan komunikasi peer-to-peer.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Proyek dan Praktikum</h2>
+        <div class="projects">
+            <div class="card">
+                <h3>Praktikum Arduino</h3>
+                <p>Dokumentasi pembelajaran rangkaian LED dan sistem digital.</p>
+            </div>
+
+            <div class="card">
+                <h3>Proyek LabVIEW</h3>
+                <p>Penerapan pemrograman visual untuk perhitungan dan kendali.</p>
+            </div>
+
+            <div class="card">
+                <h3>Praktikum Jaringan</h3>
+                <p>Pembelajaran konfigurasi jaringan komputer peer-to-peer.</p>
+            </div>
+
+            <div class="card">
+                <h3>Sistem Digital</h3>
+                <p>Pembelajaran gerbang logika dan sistem bilangan digital.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Kontak</h2>
+        <p>Terima kasih telah mengunjungi portofolio saya!</p>
+        <p>Silakan hubungi saya melalui akun profesional yang akan saya tambahkan.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Silvia Azzahra | Student Portfolio</p>
+    </footer>
+
+</body>
+</html>
