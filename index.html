@@ -3,9 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Silvia Azzahra | Portofolio Teknik Elektronika</title>
 
+  <meta name="description" content="Portofolio Silvia Azzahra, mahasiswa D3 Teknik Elektronika. Dokumentasi project, tugas, praktikum, dan aktivitas perkuliahan.">
+
   <style>
+    :root {
+      --bg: #08120e;
+      --bg-soft: #0c1913;
+      --card: #112019;
+      --card-hover: #16281f;
+      --green: #43e69a;
+      --green-light: #70f5b3;
+      --text: #e4eee8;
+      --muted: #96a99d;
+      --border: #26392e;
+      --orange: #ed9a68;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -13,269 +29,545 @@
       scroll-behavior: smooth;
     }
 
-    :root {
-      --navy: #10243e;
-      --blue: #2563eb;
-      --light: #f3f7fc;
-      --white: #ffffff;
-      --text: #34445b;
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Courier New", monospace;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--light);
-      color: var(--text);
-      line-height: 1.7;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(100% - 36px, 1050px);
+      margin: auto;
+    }
+
+    /* NAVIGASI */
 
     header {
-      background: var(--white);
-      padding: 16px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
+      background: rgba(8, 18, 14, 0.96);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 10;
-      box-shadow: 0 3px 18px #10243e12;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
-      color: var(--navy);
-      font-size: 21px;
+      color: var(--green);
+      font-size: 16px;
       font-weight: bold;
+      white-space: nowrap;
     }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
-
-    nav a {
-      text-decoration: none;
+    .logo span {
       color: var(--text);
-      font-size: 14px;
-      font-weight: bold;
     }
 
-    nav a:hover {
-      color: var(--blue);
-    }
-
-    .hero {
-      min-height: 480px;
-      padding: 90px 8%;
+    .nav-links {
       display: flex;
       align-items: center;
-      background: linear-gradient(120deg, #10243e, #2457a6);
-      color: white;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--green);
+    }
+
+    /* BERANDA */
+
+    .hero {
+      padding: 105px 0 90px;
+      background:
+        radial-gradient(
+          ellipse at 85% 20%,
+          rgba(45, 150, 93, 0.12),
+          transparent 45%
+        ),
+        var(--bg);
     }
 
     .hero-content {
-      max-width: 750px;
+      max-width: 760px;
     }
 
-    .label {
-      display: inline-block;
-      padding: 7px 14px;
-      border: 1px solid #ffffff55;
-      border-radius: 30px;
-      font-size: 13px;
+    .eyebrow {
+      color: var(--orange);
+      font-size: 12px;
+      letter-spacing: 0.4px;
       margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(34px, 5vw, 54px);
+      font-size: clamp(32px, 6vw, 52px);
       line-height: 1.2;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
+      letter-spacing: -1.8px;
     }
 
-    .hero p {
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero-description {
       max-width: 650px;
-      color: #e1eaff;
+      color: var(--muted);
       margin-bottom: 28px;
     }
 
-    .button {
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 9px;
-      text-decoration: none;
-      font-weight: bold;
-      background: white;
-      color: var(--navy);
-      border: none;
-      cursor: pointer;
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .button.blue {
-      background: var(--blue);
-      color: white;
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 43px;
+      padding: 10px 18px;
+      border: 1px solid var(--green);
+      border-radius: 7px;
+      background: var(--green);
+      color: #07140d;
+      font-size: 12px;
+      font-weight: bold;
+      transition: 0.2s;
     }
+
+    .btn:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      color: var(--green);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      color: #07140d;
+      background: var(--green);
+    }
+
+    /* BAGIAN UMUM */
 
     section {
-      padding: 70px 8%;
-      scroll-margin-top: 75px;
+      padding: 68px 0;
+      scroll-margin-top: 80px;
     }
 
-    .section-heading {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .section-heading h2 {
-      color: var(--navy);
-      font-size: 30px;
+    .section-title {
+      font-size: clamp(24px, 4vw, 30px);
+      line-height: 1.35;
       margin-bottom: 8px;
     }
 
-    .section-heading p {
-      color: #718096;
+    .section-title::before {
+      content: "// ";
+      color: var(--green);
     }
 
-    .about-box {
-      max-width: 850px;
-      margin: auto;
-      padding: 30px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 5px 25px #10243e0b;
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 12px;
     }
 
-    .info-grid {
+    .section-alt {
+      background: var(--bg-soft);
+      border-top: 1px solid #ffffff05;
+      border-bottom: 1px solid #ffffff05;
+    }
+
+    /* TENTANG SAYA */
+
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 18px;
-      margin-top: 25px;
-    }
-
-    .info {
-      background: #f0f5ff;
-      padding: 18px;
-      border-radius: 12px;
-    }
-
-    .info strong {
-      display: block;
-      color: var(--navy);
-      margin-bottom: 5px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 22px;
     }
 
     .card {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 5px 25px #10243e0b;
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 24px;
+      transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px #10243e18;
+      background: var(--card-hover);
+      border-color: #3d6650;
+      transform: translateY(-3px);
+    }
+
+    .about-card p {
+      color: var(--text);
+    }
+
+    .hashtag {
+      display: inline-block;
+      color: var(--orange);
+      margin-top: 18px;
+      font-weight: bold;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-item {
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-label {
+      display: block;
+      color: var(--green);
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+
+    .info-value {
+      color: var(--text);
+      overflow-wrap: anywhere;
+    }
+
+    /* KETERAMPILAN */
+
+    .skills-card {
+      margin-top: 18px;
+    }
+
+    .skill {
+      margin-bottom: 18px;
+    }
+
+    .skill:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 7px;
+      font-size: 12px;
+    }
+
+    .skill-header span:last-child {
+      color: var(--green);
+    }
+
+    .skill-track {
+      height: 7px;
+      background: #26382e;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 20px;
+    }
+
+    /* KARTU PROJECT */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 235px;
     }
 
     .card-icon {
-      font-size: 34px;
-      margin-bottom: 12px;
+      font-size: 28px;
+      margin-bottom: 14px;
     }
 
     .card h3 {
-      color: var(--navy);
+      color: var(--text);
+      font-size: 16px;
       margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 12px;
     }
 
     .tag {
       display: inline-block;
-      color: #2457a6;
-      background: #eaf1ff;
+      align-self: flex-start;
+      margin-top: auto;
       padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      margin-top: 15px;
+      border: 1px solid #2d5941;
+      border-radius: 30px;
+      color: var(--green);
+      font-size: 10px;
     }
 
-    .gallery-box {
-      min-height: 145px;
+    .project-card .tag {
+      margin-top: 20px;
+    }
+
+    /* GALERI */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      background: linear-gradient(135deg, #dbeafe, #9bbcf7);
+    }
+
+    .gallery-placeholder {
+      min-height: 210px;
       display: grid;
       place-items: center;
-      font-size: 42px;
-      margin-bottom: 16px;
+      position: relative;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          #172b20 0px,
+          #172b20 8px,
+          #0d1b13 8px,
+          #0d1b13 16px
+        );
     }
 
-    .activity-card {
-      border-left: 4px solid var(--blue);
+    .gallery-placeholder span {
+      font-size: 35px;
+      opacity: 0.8;
+      background: #08120ecc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 17px;
     }
 
-    .contact {
-      background: #e9f0fb;
+    .gallery-caption {
+      padding: 16px;
     }
+
+    .gallery-caption h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .gallery-caption p {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* AKTIVITAS */
+
+    .activity-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .activity-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .activity-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #193b29;
+      font-size: 22px;
+    }
+
+    .activity-item h3 {
+      margin-bottom: 5px;
+    }
+
+    /* KONTAK DAN LOGIN */
 
     .contact-box {
-      max-width: 700px;
+      max-width: 680px;
       margin: auto;
       text-align: center;
-      background: white;
-      padding: 35px;
-      border-radius: 16px;
     }
 
-    footer {
-      background: var(--navy);
-      color: #dce6f7;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 14px;
+    .contact-box .section-title::before {
+      content: "// ";
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 23px;
     }
 
     .login-panel {
       display: none;
-      max-width: 420px;
-      margin: 25px auto 0;
-      padding: 25px;
-      background: #f3f7fc;
-      border-radius: 12px;
+      max-width: 440px;
+      margin: 24px auto 0;
       text-align: left;
     }
 
-    .login-panel input {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0 15px;
-      border: 1px solid #ccd6e5;
-      border-radius: 8px;
+    .login-panel.open {
+      display: block;
     }
 
-    @media (max-width: 700px) {
-      header {
+    .login-panel label {
+      display: block;
+      margin: 12px 0 5px;
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .login-panel input {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      outline: none;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    .login-panel input:focus {
+      border-color: var(--green);
+    }
+
+    .login-note {
+      color: var(--orange) !important;
+      font-size: 11px;
+      margin: 14px 0 0 !important;
+    }
+
+    footer {
+      padding: 26px 0;
+      background: #060d09;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    footer span {
+      color: var(--green);
+    }
+
+    /* RESPONSIVE HP DAN TABLET */
+
+    @media (max-width: 800px) {
+      .navbar {
         align-items: flex-start;
         flex-direction: column;
+        justify-content: center;
+        padding: 13px 0;
+        gap: 10px;
       }
 
-      nav {
-        gap: 12px;
+      .nav-links {
+        gap: 14px;
       }
 
-      nav a {
-        font-size: 12px;
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: calc(100% - 28px);
       }
 
       .hero {
-        min-height: 400px;
-        padding: 65px 7%;
+        padding: 76px 0 65px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
       }
 
       section {
-        padding: 55px 6%;
+        padding: 53px 0;
+      }
+
+      .nav-links {
+        gap: 8px 13px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .cards-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .gallery-placeholder {
+        min-height: 180px;
       }
     }
   </style>
@@ -283,221 +575,308 @@
 
 <body>
 
+  <!-- NAVIGASI -->
   <header>
-    <div class="logo">Silvia Azzahra.</div>
+    <div class="container navbar">
+      <a href="#beranda" class="logo">&lt;Silvia<span>/&gt;</span></a>
 
-    <nav>
-      <a href="#beranda">Beranda</a>
-      <a href="#tentang">Tentang</a>
-      <a href="#project">Project</a>
-      <a href="#galeri">Galeri</a>
-      <a href="#aktivitas">Aktivitas</a>
-      <a href="#login">Login</a>
-    </nav>
+      <nav class="nav-links">
+        <a href="#beranda">Beranda</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#project">Project</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#aktivitas">Aktivitas</a>
+        <a href="#login">Login</a>
+      </nav>
+    </div>
   </header>
 
   <main>
+
+    <!-- BERANDA -->
     <section class="hero" id="beranda">
-      <div class="hero-content">
-        <span class="label">Mahasiswa Teknik Elektronika</span>
-        <h1>Halo, saya Silvia Azzahra!</h1>
-        <p>
-          Selamat datang di portofolio saya. Di sini saya membagikan
-          perjalanan belajar, project praktikum, tugas perkuliahan,
-          serta pengalaman saya di bidang Teknik Elektronika.
-        </p>
-        <a href="#project" class="button">Lihat Project Saya ↗</a>
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow">
+            D3 TEKNIK ELEKTRONIKA · POLITEKNIK NEGERI PADANG
+          </p>
+
+          <h1>
+            Halo, saya <span>Silvia<br>Azzahra</span>
+          </h1>
+
+          <p class="hero-description">
+            Mahasiswa Teknik Elektronika yang sedang mempelajari
+            rangkaian elektronika, sistem digital, pemrograman,
+            dan berbagai penerapannya melalui praktikum perkuliahan.
+          </p>
+
+          <div class="button-row">
+            <a href="#project" class="btn">Lihat project</a>
+            <a href="#galeri" class="btn btn-outline">Lihat galeri</a>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- TENTANG -->
     <section id="tentang">
-      <div class="section-heading">
-        <h2>Tentang Saya</h2>
-        <p>Mengenal saya dan bidang yang sedang saya pelajari</p>
-      </div>
-
-      <div class="about-box">
-        <p>
-          Saya adalah mahasiswa D3 Teknik Elektronika yang sedang
-          mempelajari dasar-dasar elektronika, sistem digital,
-          pemrograman, serta penggunaan perangkat lunak untuk praktikum.
-          Website ini menjadi tempat untuk mendokumentasikan proses
-          belajar dan hasil pekerjaan saya selama perkuliahan.
+      <div class="container">
+        <h2 class="section-title">Tentang saya</h2>
+        <p class="section-subtitle">
+          Sedikit cerita dan bidang yang sedang saya pelajari.
         </p>
 
-        <div class="info-grid">
-          <div class="info">
-            <strong>Nama</strong>
-            Silvia Azzahra
+        <div class="about-grid">
+          <article class="card about-card">
+            <p>
+              Saya merupakan mahasiswa D3 Teknik Elektronika
+              di Politeknik Negeri Padang. Selama perkuliahan,
+              saya mempelajari dasar elektronika, pemrograman,
+              sistem digital, instrumentasi, serta jaringan komputer.
+            </p>
+
+            <p style="margin-top:14px">
+              Melalui praktikum dan tugas perkuliahan, saya berusaha
+              memahami bagaimana teori diterapkan menjadi rangkaian,
+              simulasi, dan sistem yang dapat bekerja.
+            </p>
+
+            <span class="hashtag">#BelajarDanBerkarya</span>
+          </article>
+
+          <article class="card">
+            <div class="info-list">
+              <div class="info-item">
+                <span class="info-label">NAMA</span>
+                <div class="info-value">Silvia Azzahra</div>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">PROGRAM STUDI</span>
+                <div class="info-value">D3 Teknik Elektronika</div>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">PERGURUAN TINGGI</span>
+                <div class="info-value">Politeknik Negeri Padang</div>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">MINAT PEMBELAJARAN</span>
+                <div class="info-value">
+                  Elektronika, pemrograman, dan sistem digital
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- KETERAMPILAN -->
+        <article class="card skills-card">
+          <h3 style="margin-bottom:20px">Bidang yang dipelajari</h3>
+
+          <div class="skill">
+            <div class="skill-header">
+              <span>Rangkaian analog &amp; digital</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="width:72%"></div>
+            </div>
           </div>
-          <div class="info">
-            <strong>Program Studi</strong>
-            D3 Teknik Elektronika
+
+          <div class="skill">
+            <div class="skill-header">
+              <span>Mikrokontroler dan Arduino</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="width:68%"></div>
+            </div>
           </div>
-          <div class="info">
-            <strong>Perguruan Tinggi</strong>
-            Politeknik Negeri Padang
+
+          <div class="skill">
+            <div class="skill-header">
+              <span>LabVIEW</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="width:62%"></div>
+            </div>
           </div>
-          <div class="info">
-            <strong>Bidang yang Dipelajari</strong>
-            Elektronika, pemrograman, dan sistem digital
+
+          <div class="skill">
+            <div class="skill-header">
+              <span>Pemrograman C/C++ dan Python</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="width:58%"></div>
+            </div>
           </div>
+
+          <div class="skill">
+            <div class="skill-header">
+              <span>Jaringan komputer</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="width:55%"></div>
+            </div>
+          </div>
+
+          <p style="color:var(--muted);font-size:10px;margin-top:17px">
+            Diagram ini merupakan ilustrasi bidang pembelajaran,
+            bukan hasil pengukuran tingkat keahlian.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECT -->
+    <section class="section-alt" id="project">
+      <div class="container">
+        <h2 class="section-title">Project dan tugas</h2>
+        <p class="section-subtitle">
+          Dokumentasi materi, tugas, dan praktikum perkuliahan.
+        </p>
+
+        <div class="cards-grid">
+          <article class="card project-card">
+            <div class="card-icon">⚡</div>
+            <h3>Rangkaian Elektronika</h3>
+            <p>
+              Pembelajaran komponen elektronik, hukum dasar rangkaian,
+              pengukuran, dan analisis rangkaian.
+            </p>
+            <span class="tag">Elektronika</span>
+          </article>
+
+          <article class="card project-card">
+            <div class="card-icon">🔢</div>
+            <h3>Sistem Digital</h3>
+            <p>
+              Latihan gerbang logika, sistem bilangan,
+              dan dasar rangkaian digital.
+            </p>
+            <span class="tag">Digital</span>
+          </article>
+
+          <article class="card project-card">
+            <div class="card-icon">💻</div>
+            <h3>Pemrograman</h3>
+            <p>
+              Latihan logika program dan penyelesaian
+              soal menggunakan bahasa pemrograman.
+            </p>
+            <span class="tag">Programming</span>
+          </article>
+
+          <article class="card project-card">
+            <div class="card-icon">🧩</div>
+            <h3>Praktikum LabVIEW</h3>
+            <p>
+              Pembelajaran diagram blok, simulasi,
+              dan dasar pemrosesan melalui LabVIEW.
+            </p>
+            <span class="tag">LabVIEW</span>
+          </article>
+
+          <article class="card project-card">
+            <div class="card-icon">🔌</div>
+            <h3>Mikrokontroler</h3>
+            <p>
+              Pengenalan mikrokontroler dan latihan
+              pengendalian keluaran pada rangkaian.
+            </p>
+            <span class="tag">Mikrokontroler</span>
+          </article>
+
+          <article class="card project-card">
+            <div class="card-icon">🌐</div>
+            <h3>Jaringan Komputer</h3>
+            <p>
+              Pembelajaran kabel LAN dan konsep
+              komunikasi peer-to-peer.
+            </p>
+            <span class="tag">Networking</span>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="project">
-      <div class="section-heading">
-        <h2>Project & Tugas</h2>
-        <p>Dokumentasi pembelajaran dan praktikum perkuliahan</p>
-      </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card-icon">💡</div>
-          <h3>Arduino dan LED</h3>
-          <p>Praktik pengenalan mikrokontroler, LED, dan dasar pengendalian rangkaian.</p>
-          <span class="tag">Mikrokontroler</span>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">⚙️</div>
-          <h3>LabVIEW</h3>
-          <p>Pembelajaran pemrograman berbasis diagram blok untuk simulasi dan praktikum.</p>
-          <span class="tag">Instrumentasi</span>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">💻</div>
-          <h3>Pemrograman</h3>
-          <p>Latihan logika program menggunakan bahasa pemrograman sesuai materi perkuliahan.</p>
-          <span class="tag">Programming</span>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">🔌</div>
-          <h3>Rangkaian Elektronika</h3>
-          <p>Pembelajaran komponen, pengukuran, dan analisis rangkaian elektronika.</p>
-          <span class="tag">Elektronika</span>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">🔢</div>
-          <h3>Sistem Digital</h3>
-          <p>Latihan gerbang logika, sistem bilangan, dan rangkaian digital.</p>
-          <span class="tag">Digital</span>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">🌐</div>
-          <h3>Jaringan Komputer</h3>
-          <p>Pembelajaran dasar jaringan, penyambungan kabel LAN, dan komunikasi peer-to-peer.</p>
-          <span class="tag">Jaringan</span>
-        </article>
-      </div>
-    </section>
-
+    <!-- GALERI -->
     <section id="galeri">
-      <div class="section-heading">
-        <h2>Galeri</h2>
-        <p>Tempat dokumentasi foto kegiatan dan hasil praktikum</p>
-      </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="gallery-box">📷</div>
-          <h3>Praktikum Elektronika</h3>
-          <p>Tambahkan foto kegiatan praktikum di sini.</p>
-        </article>
-
-        <article class="card">
-          <div class="gallery-box">🧪</div>
-          <h3>Hasil Percobaan</h3>
-          <p>Tambahkan foto rangkaian atau hasil percobaan.</p>
-        </article>
-
-        <article class="card">
-          <div class="gallery-box">📚</div>
-          <h3>Kegiatan Perkuliahan</h3>
-          <p>Tambahkan foto kegiatan belajar atau dokumentasi tugas.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="aktivitas">
-      <div class="section-heading">
-        <h2>Aktivitas</h2>
-        <p>Perjalanan dan pengalaman selama masa perkuliahan</p>
-      </div>
-
-      <div class="cards">
-        <article class="card activity-card">
-          <div class="card-icon">📖</div>
-          <h3>Kegiatan Akademik</h3>
-          <p>Mengikuti pembelajaran, mengerjakan tugas, dan menyusun laporan praktikum.</p>
-        </article>
-
-        <article class="card activity-card">
-          <div class="card-icon">🛠️</div>
-          <h3>Kegiatan Praktikum</h3>
-          <p>Mempelajari penerapan teori melalui percobaan dan simulasi.</p>
-        </article>
-
-        <article class="card activity-card">
-          <div class="card-icon">🌱</div>
-          <h3>Pengembangan Diri</h3>
-          <p>Menambah pengetahuan dan mengembangkan keterampilan di bidang elektronika.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="contact" id="login">
-      <div class="contact-box">
-        <h2>Login Pemilik</h2>
-        <p>
-          Area khusus pemilik portofolio.
-          Formulir ini masih berupa tampilan demo.
+      <div class="container">
+        <h2 class="section-title">Galeri</h2>
+        <p class="section-subtitle">
+          Dokumentasi kegiatan dan hasil belajar.
+          Kotak galeri dapat diganti dengan foto asli.
         </p>
 
-        <button class="button blue" style="margin-top:20px"
-          onclick="toggleLogin()">Buka Form Login</button>
+        <div class="gallery-grid">
+          <article class="gallery-item">
+            <div class="gallery-placeholder">
+              <span>⚡</span>
+            </div>
+            <div class="gallery-caption">
+              <h3>Praktikum Elektronika</h3>
+              <p>Dokumentasi percobaan dan rangkaian.</p>
+            </div>
+          </article>
 
-        <div class="login-panel" id="loginPanel">
-          <form onsubmit="demoLogin(event)">
-            <label for="username">Username</label>
-            <input id="username" type="text"
-              placeholder="Masukkan username" required>
+          <article class="gallery-item">
+            <div class="gallery-placeholder">
+              <span>💻</span>
+            </div>
+            <div class="gallery-caption">
+              <h3>Project Pemrograman</h3>
+              <p>Dokumentasi latihan dan hasil program.</p>
+            </div>
+          </article>
 
-            <label for="password">Password</label>
-            <input id="password" type="password"
-              placeholder="Masukkan password" required>
+          <article class="gallery-item">
+            <div class="gallery-placeholder">
+              <span>🔢</span>
+            </div>
+            <div class="gallery-caption">
+              <h3>Sistem Digital</h3>
+              <p>Dokumentasi tugas dan praktikum digital.</p>
+            </div>
+          </article>
 
-            <button class="button blue" type="submit">Masuk</button>
-          </form>
-          <p id="loginMessage" style="margin-top:12px;font-size:13px"></p>
+          <article class="gallery-item">
+            <div class="gallery-placeholder">
+              <span>📚</span>
+            </div>
+            <div class="gallery-caption">
+              <h3>Kegiatan Perkuliahan</h3>
+              <p>Dokumentasi aktivitas akademik.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <p>© 2026 Silvia Azzahra | Portofolio Teknik Elektronika</p>
-    <p>Belajar, berkarya, dan terus berkembang.</p>
-  </footer>
+    <!-- AKTIVITAS -->
+    <section class="section-alt" id="aktivitas">
+      <div class="container">
+        <h2 class="section-title">Aktivitas</h2>
+        <p class="section-subtitle">
+          Perjalanan belajar selama menjadi mahasiswa.
+        </p>
 
-  <script>
-    function toggleLogin() {
-      const panel = document.getElementById("loginPanel");
-      panel.style.display =
-        panel.style.display === "block" ? "none" : "block";
-    }
+        <div class="activity-list">
+          <article class="card activity-item">
+            <div class="activity-icon">📖</div>
+            <div>
+              <h3>Kegiatan Akademik</h3>
+              <p>
+                Mengikuti pembelajaran, mengerjakan tugas,
+                dan menyusun laporan praktikum.
+              </p>
+            </div>
+          </article>
 
-    function demoLogin(event) {
-      event.preventDefault();
-      document.getElementById("loginMessage").textContent =
-        "Ini hanya tampilan demo. Fitur login pemilik belum terhubung ke sistem akun.";
-    }
-  </script>
-
-</body>
-</html>
+          <article class="card activity-item">
+            <div class="activity-icon">🛠️</div>
+            <div>
+              <h3>Kegiatan Praktikum</h3>
+              <p>
+                Mempelajari penerapan teori melalui
