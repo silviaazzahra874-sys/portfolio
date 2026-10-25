@@ -1,230 +1,503 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silvia Azzahra | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silvia Azzahra | Portofolio Teknik Elektronika</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #243047;
-            line-height: 1.7;
-        }
+    :root {
+      --navy: #10243e;
+      --blue: #2563eb;
+      --light: #f3f7fc;
+      --white: #ffffff;
+      --text: #34445b;
+    }
 
-        header {
-            background: #142b4a;
-            color: white;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-        header h2 {
-            color: #63d6ff;
-        }
+    header {
+      background: var(--white);
+      padding: 16px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 18px #10243e12;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 18px;
-        }
+    .logo {
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: bold;
+    }
 
-        nav a:hover {
-            color: #63d6ff;
-        }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
 
-        .hero {
-            background: linear-gradient(135deg, #142b4a, #176b87);
-            color: white;
-            padding: 90px 8%;
-            text-align: center;
-        }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+    nav a:hover {
+      color: var(--blue);
+    }
 
-        .hero p {
-            margin: 10px 0 25px;
-        }
+    .hero {
+      min-height: 480px;
+      padding: 90px 8%;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(120deg, #10243e, #2457a6);
+      color: white;
+    }
 
-        .btn {
-            display: inline-block;
-            background: #63d6ff;
-            color: #142b4a;
-            padding: 10px 22px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .hero-content {
+      max-width: 750px;
+    }
 
-        section {
-            padding: 55px 8%;
-        }
+    .label {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid #ffffff55;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
 
-        section h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #176b87;
-        }
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
 
-        .about {
-            max-width: 750px;
-            margin: auto;
-            text-align: center;
-        }
+    .hero p {
+      max-width: 650px;
+      color: #e1eaff;
+      margin-bottom: 28px;
+    }
 
-        .skills, .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+      background: white;
+      color: var(--navy);
+      border: none;
+      cursor: pointer;
+    }
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px #142b4a12;
-        }
+    .button.blue {
+      background: var(--blue);
+      color: white;
+    }
 
-        .card h3 {
-            color: #176b87;
-            margin-bottom: 10px;
-        }
+    section {
+      padding: 70px 8%;
+      scroll-margin-top: 75px;
+    }
 
-        .contact {
-            text-align: center;
-            background: #e4edf5;
-        }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #142b4a;
-            color: white;
-        }
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
 
-        @media (max-width: 600px) {
-            header {
-                justify-content: center;
-                text-align: center;
-            }
+    .section-heading p {
+      color: #718096;
+    }
 
-            nav a {
-                margin: 0 7px;
-                font-size: 14px;
-            }
+    .about-box {
+      max-width: 850px;
+      margin: auto;
+      padding: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 5px 25px #10243e0b;
+    }
 
-            .hero h1 {
-                font-size: 32px;
-            }
-        }
-    </style>
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .info {
+      background: #f0f5ff;
+      padding: 18px;
+      border-radius: 12px;
+    }
+
+    .info strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 25px #10243e0b;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px #10243e18;
+    }
+
+    .card-icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: #2457a6;
+      background: #eaf1ff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-top: 15px;
+    }
+
+    .gallery-box {
+      min-height: 145px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #dbeafe, #9bbcf7);
+      display: grid;
+      place-items: center;
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    .activity-card {
+      border-left: 4px solid var(--blue);
+    }
+
+    .contact {
+      background: #e9f0fb;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      background: white;
+      padding: 35px;
+      border-radius: 16px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #dce6f7;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 14px;
+    }
+
+    .login-panel {
+      display: none;
+      max-width: 420px;
+      margin: 25px auto 0;
+      padding: 25px;
+      background: #f3f7fc;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .login-panel input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 15px;
+      border: 1px solid #ccd6e5;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 400px;
+        padding: 65px 7%;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <h2>Silvia Azzahra</h2>
-        <nav>
-            <a href="#about">Tentang</a>
-            <a href="#skills">Keahlian</a>
-            <a href="#projects">Proyek</a>
-            <a href="#contact">Kontak</a>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">Silvia Azzahra.</div>
 
-    <div class="hero">
-        <h1>Halo, Saya Silvia Azzahra!</h1>
-        <p>Mahasiswa Teknik Elektronika</p>
-        <p>Belajar, Berkarya, dan Mengembangkan Keterampilan di Bidang Elektronika.</p>
-        <a href="#projects" class="btn">Lihat Portofolio</a>
-    </div>
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#project">Project</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#aktivitas">Aktivitas</a>
+      <a href="#login">Login</a>
+    </nav>
+  </header>
 
-    <section id="about">
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-content">
+        <span class="label">Mahasiswa Teknik Elektronika</span>
+        <h1>Halo, saya Silvia Azzahra!</h1>
+        <p>
+          Selamat datang di portofolio saya. Di sini saya membagikan
+          perjalanan belajar, project praktikum, tugas perkuliahan,
+          serta pengalaman saya di bidang Teknik Elektronika.
+        </p>
+        <a href="#project" class="button">Lihat Project Saya ↗</a>
+      </div>
+    </section>
+
+    <section id="tentang">
+      <div class="section-heading">
         <h2>Tentang Saya</h2>
-        <div class="about">
-            <p>
-                Saya adalah mahasiswa Teknik Elektronika yang tertarik
-                pada elektronika, pemrograman, dan sistem kendali.
-                Saya terus mengembangkan pengetahuan dan keterampilan
-                melalui kegiatan praktikum serta proyek akademik.
-            </p>
+        <p>Mengenal saya dan bidang yang sedang saya pelajari</p>
+      </div>
+
+      <div class="about-box">
+        <p>
+          Saya adalah mahasiswa D3 Teknik Elektronika yang sedang
+          mempelajari dasar-dasar elektronika, sistem digital,
+          pemrograman, serta penggunaan perangkat lunak untuk praktikum.
+          Website ini menjadi tempat untuk mendokumentasikan proses
+          belajar dan hasil pekerjaan saya selama perkuliahan.
+        </p>
+
+        <div class="info-grid">
+          <div class="info">
+            <strong>Nama</strong>
+            Silvia Azzahra
+          </div>
+          <div class="info">
+            <strong>Program Studi</strong>
+            D3 Teknik Elektronika
+          </div>
+          <div class="info">
+            <strong>Perguruan Tinggi</strong>
+            Politeknik Negeri Padang
+          </div>
+          <div class="info">
+            <strong>Bidang yang Dipelajari</strong>
+            Elektronika, pemrograman, dan sistem digital
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="skills">
-        <h2>Keterampilan</h2>
-        <div class="skills">
-            <div class="card">
-                <h3>Elektronika Dasar</h3>
-                <p>Mempelajari komponen, rangkaian, dan pengukuran listrik.</p>
-            </div>
+    <section id="project">
+      <div class="section-heading">
+        <h2>Project & Tugas</h2>
+        <p>Dokumentasi pembelajaran dan praktikum perkuliahan</p>
+      </div>
 
-            <div class="card">
-                <h3>Pemrograman</h3>
-                <p>Mempelajari dasar C++, Python, dan logika pemrograman.</p>
-            </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon">💡</div>
+          <h3>Arduino dan LED</h3>
+          <p>Praktik pengenalan mikrokontroler, LED, dan dasar pengendalian rangkaian.</p>
+          <span class="tag">Mikrokontroler</span>
+        </article>
 
-            <div class="card">
-                <h3>LabVIEW</h3>
-                <p>Mempelajari pemrograman visual dan sistem kendali.</p>
-            </div>
+        <article class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>LabVIEW</h3>
+          <p>Pembelajaran pemrograman berbasis diagram blok untuk simulasi dan praktikum.</p>
+          <span class="tag">Instrumentasi</span>
+        </article>
 
-            <div class="card">
-                <h3>Jaringan Komputer</h3>
-                <p>Mempelajari konfigurasi jaringan dan komunikasi peer-to-peer.</p>
-            </div>
+        <article class="card">
+          <div class="card-icon">💻</div>
+          <h3>Pemrograman</h3>
+          <p>Latihan logika program menggunakan bahasa pemrograman sesuai materi perkuliahan.</p>
+          <span class="tag">Programming</span>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🔌</div>
+          <h3>Rangkaian Elektronika</h3>
+          <p>Pembelajaran komponen, pengukuran, dan analisis rangkaian elektronika.</p>
+          <span class="tag">Elektronika</span>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🔢</div>
+          <h3>Sistem Digital</h3>
+          <p>Latihan gerbang logika, sistem bilangan, dan rangkaian digital.</p>
+          <span class="tag">Digital</span>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Jaringan Komputer</h3>
+          <p>Pembelajaran dasar jaringan, penyambungan kabel LAN, dan komunikasi peer-to-peer.</p>
+          <span class="tag">Jaringan</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="galeri">
+      <div class="section-heading">
+        <h2>Galeri</h2>
+        <p>Tempat dokumentasi foto kegiatan dan hasil praktikum</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="gallery-box">📷</div>
+          <h3>Praktikum Elektronika</h3>
+          <p>Tambahkan foto kegiatan praktikum di sini.</p>
+        </article>
+
+        <article class="card">
+          <div class="gallery-box">🧪</div>
+          <h3>Hasil Percobaan</h3>
+          <p>Tambahkan foto rangkaian atau hasil percobaan.</p>
+        </article>
+
+        <article class="card">
+          <div class="gallery-box">📚</div>
+          <h3>Kegiatan Perkuliahan</h3>
+          <p>Tambahkan foto kegiatan belajar atau dokumentasi tugas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="aktivitas">
+      <div class="section-heading">
+        <h2>Aktivitas</h2>
+        <p>Perjalanan dan pengalaman selama masa perkuliahan</p>
+      </div>
+
+      <div class="cards">
+        <article class="card activity-card">
+          <div class="card-icon">📖</div>
+          <h3>Kegiatan Akademik</h3>
+          <p>Mengikuti pembelajaran, mengerjakan tugas, dan menyusun laporan praktikum.</p>
+        </article>
+
+        <article class="card activity-card">
+          <div class="card-icon">🛠️</div>
+          <h3>Kegiatan Praktikum</h3>
+          <p>Mempelajari penerapan teori melalui percobaan dan simulasi.</p>
+        </article>
+
+        <article class="card activity-card">
+          <div class="card-icon">🌱</div>
+          <h3>Pengembangan Diri</h3>
+          <p>Menambah pengetahuan dan mengembangkan keterampilan di bidang elektronika.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="login">
+      <div class="contact-box">
+        <h2>Login Pemilik</h2>
+        <p>
+          Area khusus pemilik portofolio.
+          Formulir ini masih berupa tampilan demo.
+        </p>
+
+        <button class="button blue" style="margin-top:20px"
+          onclick="toggleLogin()">Buka Form Login</button>
+
+        <div class="login-panel" id="loginPanel">
+          <form onsubmit="demoLogin(event)">
+            <label for="username">Username</label>
+            <input id="username" type="text"
+              placeholder="Masukkan username" required>
+
+            <label for="password">Password</label>
+            <input id="password" type="password"
+              placeholder="Masukkan password" required>
+
+            <button class="button blue" type="submit">Masuk</button>
+          </form>
+          <p id="loginMessage" style="margin-top:12px;font-size:13px"></p>
         </div>
+      </div>
     </section>
+  </main>
 
-    <section id="projects">
-        <h2>Proyek dan Praktikum</h2>
-        <div class="projects">
-            <div class="card">
-                <h3>Praktikum Arduino</h3>
-                <p>Dokumentasi pembelajaran rangkaian LED dan sistem digital.</p>
-            </div>
+  <footer>
+    <p>© 2026 Silvia Azzahra | Portofolio Teknik Elektronika</p>
+    <p>Belajar, berkarya, dan terus berkembang.</p>
+  </footer>
 
-            <div class="card">
-                <h3>Proyek LabVIEW</h3>
-                <p>Penerapan pemrograman visual untuk perhitungan dan kendali.</p>
-            </div>
+  <script>
+    function toggleLogin() {
+      const panel = document.getElementById("loginPanel");
+      panel.style.display =
+        panel.style.display === "block" ? "none" : "block";
+    }
 
-            <div class="card">
-                <h3>Praktikum Jaringan</h3>
-                <p>Pembelajaran konfigurasi jaringan komputer peer-to-peer.</p>
-            </div>
-
-            <div class="card">
-                <h3>Sistem Digital</h3>
-                <p>Pembelajaran gerbang logika dan sistem bilangan digital.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Kontak</h2>
-        <p>Terima kasih telah mengunjungi portofolio saya!</p>
-        <p>Silakan hubungi saya melalui akun profesional yang akan saya tambahkan.</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Silvia Azzahra | Student Portfolio</p>
-    </footer>
+    function demoLogin(event) {
+      event.preventDefault();
+      document.getElementById("loginMessage").textContent =
+        "Ini hanya tampilan demo. Fitur login pemilik belum terhubung ke sistem akun.";
+    }
+  </script>
 
 </body>
 </html>
